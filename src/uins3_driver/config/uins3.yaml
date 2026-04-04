@@ -1,0 +1,7 @@
+uins3_driver:
+  ros__parameters:
+    port: "/dev/ttyACM0"
+    baudrate: 921600
+    frame_id_imu: "imu_link"
+    frame_id_odom: "odom"
+    frame_id_base: "base_link"

@@ -1,0 +1,10 @@
+build/
+install/
+log/
+.vscode/
+*.bag
+*.pcap
+*.pcd
+__pycache__/
+*.pyc
+.DS_Store
