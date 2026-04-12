@@ -8,3 +8,9 @@ log/
 __pycache__/
 *.pyc
 .DS_Store
+*.bag
+*.db3
+*.pcap
+kalibr_bag/
+fastcalib_bag/
+calibration_orchestrator.log

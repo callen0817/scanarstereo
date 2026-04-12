@@ -1,0 +1,9 @@
+# Inertial Sense uINS-3 IMU Parameters
+rostopic: /imu/data
+update_rate: 400.0 # Hz
+
+# Noise parameters
+accelerometer_noise_density: 0.1
+accelerometer_random_walk: 0.0001
+gyroscope_noise_density: 0.1
+gyroscope_random_walk: 0.0001

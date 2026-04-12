@@ -1,4 +1,4 @@
-FROM osrf/ros:noetic-desktop-full
+FROM arm64v8/ros:noetic-robot
 
 # Install dependencies for Kalibr
 RUN apt-get update && apt-get install -y \
@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     git \
     wget \
     python3-tk \
-    ros-noetic-decompress-ros-bag
+    libv4l-dev \
+    libsuitesparse-dev
 
 # Setup workspace
 RUN mkdir -p /kalibr_ws/src

@@ -30,9 +30,14 @@ def generate_launch_description():
     )
 
     # 3. OAK-D Pro Driver
+    depthai_config = os.path.join(get_package_share_directory('scanar_gui'), 'config', 'oak_calibration.yaml')
     depthai_driver = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(depthai_launch_dir, 'camera.launch.py')),
-        launch_arguments={'name': 'oak', 'parent_frame': 'base_link'}.items()
+        launch_arguments={
+            'name': 'oak', 
+            'parent_frame': 'base_link',
+            'params_file': depthai_config
+        }.items()
     )
 
     # 4. FAST-LIVO2 SLAM

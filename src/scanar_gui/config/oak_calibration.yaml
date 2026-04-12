@@ -1,0 +1,22 @@
+oak:
+  ros__parameters:
+    camera:
+      i_nn_type: none
+      i_pipeline_type: rgb
+      i_ip: "192.168.123.20"
+    rgb:
+      i_resolution: "800" # Global shutter RGB resolution
+      i_fps: 30.0
+      i_publish_topic: true
+    left:
+      i_publish_topic: false
+    right:
+      i_publish_topic: false
+    stereo:
+      i_publish_topic: false
+    nn:
+      i_publish_topic: false
+    # Disable IR features
+    i_enable_ir: false
+    i_laser_dot_brightness: 0
+    i_floodlight_brightness: 0

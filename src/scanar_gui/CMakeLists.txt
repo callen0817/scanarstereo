@@ -54,6 +54,9 @@ target_link_libraries(scanar_gui_node
 install(TARGETS scanar_gui_node
   DESTINATION lib/${PROJECT_NAME})
 
+install(DIRECTORY launch config
+  DESTINATION share/${PROJECT_NAME})
+
 # Use standard ament macro
 ament_target_dependencies(scanar_gui_node
   rclcpp
