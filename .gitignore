@@ -14,3 +14,5 @@ __pycache__/
 kalibr_bag/
 fastcalib_bag/
 calibration_orchestrator.log
+ig2_ros2_project/
+inertial_sense_submission/

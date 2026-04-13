@@ -1,0 +1,21 @@
+===========================================================
+ScanAR v2 Calibration: X86 Processing Instructions
+===========================================================
+
+Step 1: Pull the pre-built Kalibr Docker image (x86 only)
+-------------------------------------------------------
+docker pull stereolabs/kalibr:kinetic
+
+Step 2: Run Camera-IMU Calibration
+----------------------------------
+docker run -it --rm -v $(pwd):/data stereolabs/kalibr:kinetic \
+    kalibr_calibrate_imu_camera --bag /data/kalibr_ros1.bag \
+    --cam /data/camchain-kalibr_ros1.yaml \
+    --imu /data/imu_uins3.yaml \
+    --target /data/aprilgrid_10x8.yaml
+
+Step 3: Output Handling
+-----------------------
+This will generate 'results-imucam.txt'. 
+Copy the T_cam_imu matrix and paste it into 
+src/fast_livo/config/scanar_v2_rs.yaml on the Jetson.

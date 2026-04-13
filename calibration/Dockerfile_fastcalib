@@ -1,0 +1,36 @@
+FROM arm64v8/ros:noetic-robot
+
+# Force apt-get to be non-interactive and bypass hung mirrors
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-pip \
+    python3-catkin-tools \
+    ros-noetic-vision-opencv \
+    ros-noetic-image-transport \
+    ros-noetic-pcl-ros \
+    ros-noetic-pcl-conversions \
+    ros-noetic-tf \
+    libopencv-dev \
+    git \
+    wget \
+    python3-tk \
+    libv4l-dev \
+    libsuitesparse-dev \
+    ros-noetic-livox-ros-driver
+
+# Setup workspace
+RUN mkdir -p /calib_ws/src
+WORKDIR /calib_ws/src
+
+# Copy FAST-Calib
+COPY ./src/FAST-Calib /calib_ws/src/FAST-Calib
+
+# Build workspace
+WORKDIR /calib_ws
+RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin build -DCMAKE_BUILD_TYPE=Release"
+
+# Entrypoint
+COPY ./calibration/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["bash"]

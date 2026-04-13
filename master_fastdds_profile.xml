@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+    <participant profile_name="scanar_master_profile" is_default_profile="true">
+        <rtps>
+            <name>ScanAR_Jetson_Node</name>
+            <builtin>
+                <metatrafficUnicastLocatorList>
+                    <locator/>
+                </metatrafficUnicastLocatorList>
+                <initialPeersList>
+                    <!-- Jetson 1 IP -->
+                    <locator>
+                        <udpv4>
+                            <address>127.0.0.1</address>
+                        </udpv4>
+                    </locator>
+                    <!-- Jetson 2 IP (Placeholder - Update with actual Device 2 IP) -->
+                    <!-- <locator>
+                        <udpv4>
+                            <address>192.168.1.XXX</address>
+                        </udpv4>
+                    </locator> -->
+                </initialPeersList>
+            </builtin>
+        </rtps>
+    </participant>
+</profiles>

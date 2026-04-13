@@ -1,0 +1,20 @@
+common:
+    lid_topic:  "/rslidar_points"
+    imu_topic:  "/imu/data"
+    time_sync:  true         # true for non-synchronized sensors
+    time_offset: 0.0         # initial time offset
+
+init:
+    # IMU noise parameters (uINS-3)
+    acc_n: 0.1
+    gyr_n: 0.1
+    acc_w: 0.0001
+    gyr_w: 0.0001
+    
+    # Calibration parameters
+    cut_frame_num: 1         # 1 for standard LiDAR
+    orig_odom_freq: 10       # RoboSense Airy freq
+    mean_acc_norm: 9.81
+    
+    # Pre-integration parameters
+    gravity: [0.0, 0.0, -9.81]
