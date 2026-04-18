@@ -13,6 +13,11 @@ def generate_launch_description():
             executable='uins3_node',
             name='uins3_driver',
             output='screen',
-            parameters=[param_config]
+            parameters=[param_config],
+            remappings=[
+                ('/imu/data', '/dev1/imu/data'),
+                ('/odom', '/dev1/odom'),
+                ('/gps/fix', '/dev1/gps/fix')
+            ]
         )
     ])
